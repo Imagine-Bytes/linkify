@@ -1,9 +1,9 @@
-import React from 'react';
-import './App.css';
+import React from 'react'
+import Signup from './components/Signup'
 
 function App() {
   return (
-    <h1>Linkify.io</h1>
+    <Signup />
   );
 }
 
