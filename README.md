@@ -1,1 +1,3 @@
-# linkify
+# linkify.io
+
+url shortener
