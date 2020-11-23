@@ -6,11 +6,11 @@ class Header extends React.Component {
   render() {
     return (
       <HeaderStyled>
+        <Link to="/" className="navbar-brand">
+          Linkify.io
+          </Link>
         <nav className="container">
 
-          <Link to="/" className="navbar-brand">
-            Linkify.io
-          </Link>
           <Link to="/login">
             Login
           </Link>
