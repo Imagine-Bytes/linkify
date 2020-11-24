@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import { theme } from '../../assets/styles/theme'
 export const HeaderStyled = styled.header`
-    height: 8vh;
+    height: 10vh;
     width: 100%;
     display: flex;
     align-items: center;

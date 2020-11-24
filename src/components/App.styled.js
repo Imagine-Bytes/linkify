@@ -16,7 +16,7 @@ export const AppStyled = styled.body`
   background-repeat: no-repeat;
   background-size: 100%;
   color: white;
-  height: 100vh;
+  height: 100%; 
   h1 {
         font-weight: 400;
         font-size: ${theme.fontSizes.xxlarge};
