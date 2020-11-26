@@ -14,4 +14,8 @@ export const LoginStyled = styled.main`
     .title {
         margin-bottom: 8%;
     }
+
+    .form {
+        
+    }
 `
