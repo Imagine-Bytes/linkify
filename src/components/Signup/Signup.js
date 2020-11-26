@@ -1,4 +1,5 @@
 import React from 'react'
+import { Button } from '../../assets/styles/Button';
 import '../App.css'
 import Header from '../Header/Header'
 import { SignupStyled } from './Signup.styed'
@@ -37,11 +38,11 @@ function Signup() {
                     placeholder="Confirm your password"
                 />
 
-                <button 
+                <Button 
                     className="btn btn-lg btn-primary pull-xs-right"
                     type="submit">
                     Submit
-                </button>
+                </Button>
             </div>
         </SignupStyled>    
     </div>

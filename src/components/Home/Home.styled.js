@@ -21,7 +21,7 @@ export const HomeStyled = styled.main`
     }
     @media screen and (max-width: ${theme.breakpoints[4]}){
         padding: ${theme.spacing.screenPaddingSmall};
-    padding-top: 10vh;
+        padding-top: 10vh;
 }
 @media screen and (max-width: ${theme.breakpoints[5]}){
     #intro {
