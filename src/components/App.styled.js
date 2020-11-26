@@ -1,7 +1,11 @@
 import styled from 'styled-components';
 import { theme } from '../assets/styles/theme'
 
+// eslint-disable-next-line import/no-webpack-loader-syntax
+import fonts from '!!raw-loader!../assets/styles/scss/_fonts.scss';
+
 export const AppStyled = styled.body`
+${fonts}
   *,
 *::before,
 *::after {
@@ -10,23 +14,34 @@ export const AppStyled = styled.body`
   box-sizing: border-box;
 }
 
+  font-family: SourceSansPro;
   text-align: center;
   background: ${theme.colors.backgroundColor} ${theme.colors.bodyBg};
   background-position: right bottom;
   background-repeat: no-repeat;
   background-size: 100%;
   color: white;
-  height: 100%; 
+  min-height: 100vh;
+  h1,h2 {
+    font-family: Nunito;
+  }
   h1 {
+      
         font-weight: 400;
         font-size: ${theme.fontSizes.xxlarge};
     }
-    h3 {
-        font-weight: 400;;
+  h2 {
+        font-weight: 300;
+        font-size: ${theme.fontSizes.
+    xlarge};
+    }
+
+  h3 {
+        font-weight: 400;
     }
     @media screen and (max-width: ${theme.breakpoints[0]}){
     
-    background-size: 1928.88px;
+    
     h1 {
       font-size: 5em;
     }
@@ -54,14 +69,10 @@ export const AppStyled = styled.body`
   
 
   button {
-    margin-top: 30px;
-    background: ${theme.colors.primaryColor};
-    border: none;
-    outline: none;
-    padding: 10px 10px;
-    border-radius: ${theme.shape.borderRadiusSmall};
-    width: 12%;
-    min-width: 100px
+    
+  }
+  * {
+    z-index: 1;
   }
   ::before {
     content: '';
@@ -73,15 +84,16 @@ export const AppStyled = styled.body`
     width: 20vh;
     height: 20vh;
     border-radius: 100%;
+    z-index: 0;
   }
   @media screen and (max-width: ${theme.breakpoints[1]}){
     
-    background-size: 1928.88px;
+    
     h1 {
       font-size: 5em;
     }
     input {
-      width: 100%;
+      width: 70%;
     }
     button {
       width: 24%;

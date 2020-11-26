@@ -14,14 +14,28 @@ export const HomeStyled = styled.main`
 
     #intro {
         margin-bottom: 8%;
-        border: 1px solid red;
+        
     }
     .form {
         
     }
     @media screen and (max-width: ${theme.breakpoints[4]}){
         padding: ${theme.spacing.screenPaddingSmall};
-        padding-top: 10vh;
+    padding-top: 10vh;
+}
+@media screen and (max-width: ${theme.breakpoints[5]}){
+    #intro {
+        h1 {
+            font-size: 15vw;
+        }
     }
+}
+@media screen and (max-width: ${theme.breakpoints[7]}){
+    #intro {
+        h1 {
+            font-size: 20vw;
+        }
+    }
+}
 
 `
