@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { AppStyled } from './App.styled'
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
-//import Signup from './Signup';
+import Signup from './Signup/Signup';
 import Home from './Home/Home';
 import Dashboard from './Dashboard/Dashboard'
 
