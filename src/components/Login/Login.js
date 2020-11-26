@@ -13,7 +13,7 @@ function Login() {
                 <h1>Login</h1>
             </div>
 
-            <div className="form">
+            <div>
                 <input
                     className="form-control form-control-lg"
                     type="text"
