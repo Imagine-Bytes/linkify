@@ -27,7 +27,7 @@ const lineHeights = {
 };
 
 const typography = {
-    fontFamily: "Poppins, Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Ubuntu, 'Helvetica Neue', sans-serif",
+    header: "SourceSansPro, Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Ubuntu, 'Helvetica Neue', sans-serif",
     body:
         "Poppins, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'",
     monospace: 'SFMono-Regular,Consolas,Liberation Mono,Menlo,monospace',
@@ -36,7 +36,7 @@ const typography = {
 const shape = {
     borderRadius: "10px",
     borderRadiusSmall: "5px",
-    
+
 };
 
 const animations = {

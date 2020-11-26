@@ -1,4 +1,5 @@
 import React from 'react'
+import { Button } from '../../assets/styles/Button';
 import { LoginStyled } from './Login.styled'
 import Header from '../Header/Header'
 
@@ -24,11 +25,11 @@ function Login() {
                     placeholder="Enter a password"
                 />
 
-                <button
+                <Button
                     className="btn btn-lg btn-primary pull-xs-right"
                     type="submit">
                     Login
-                </button>
+                </Button>
             
             </div>
         </LoginStyled>
