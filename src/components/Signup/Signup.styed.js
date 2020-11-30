@@ -27,4 +27,8 @@ export const SignupStyled = styled.main`
             margin: 5vh;
         }
     }
+
+    form {
+        width: 100%;
+    }
 `
