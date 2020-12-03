@@ -15,6 +15,13 @@ export const SignupStyled = styled.main`
         white-space: nowrap;
         overflow: hidden;
     }
+
+    p.error-log {
+        margin: ${theme.spacing.medium};
+        font-size: ${theme.fontSizes.large};
+        color: ${theme.colors.errorText};
+    }
+
     @media screen and (max-width: ${theme.breakpoints[4]}){
         padding: ${theme.spacing.screenPaddingSmall};
         padding-top: 10vh;
