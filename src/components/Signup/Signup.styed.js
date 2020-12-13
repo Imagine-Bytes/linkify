@@ -16,10 +16,8 @@ export const SignupStyled = styled.main`
         overflow: hidden;
     }
 
-    p.error-log {
-        margin: ${theme.spacing.medium};
-        font-size: ${theme.fontSizes.large};
-        color: ${theme.colors.errorText};
+    .button {
+        margin-top: 2vh;
     }
 
     @media screen and (max-width: ${theme.breakpoints[4]}){
@@ -30,7 +28,7 @@ export const SignupStyled = styled.main`
     @media screen and (max-height: ${theme.breakpoints[5]}){
         height: unset;
 
-        button {
+        .button {
             margin: 5vh;
         }
     }

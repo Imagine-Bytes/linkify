@@ -5,6 +5,8 @@ import Header from '../Header/Header'
 import { connect } from 'react-redux'
 import { SignupStyled } from './Signup.styed'
 import registeredForm from '../../actions/registeredForm'
+import validateEmail from '../../validateEmail'
+import { Error } from '../../assets/styles/Error'
 
 
 
@@ -17,6 +19,9 @@ const Signup = ({ dispatch }) => {
         repeatPassword: ''
     })
 
+    const [attempt, setAttempt] = useState(false)
+    const [valid, setValid] = useState(false)
+
     const handleUpdate = (event) => {
         setForm({
             ...form,
@@ -25,9 +30,23 @@ const Signup = ({ dispatch }) => {
     }
 
     const register = (e) => {
+        validate()
         e.preventDefault()
-        return dispatch(registeredForm(form))
+        setAttempt(true)
+        if (valid) return dispatch(registeredForm(form)) 
     }
+
+    const validate = () => {
+        const { username, email, password, repeatPassword } = form
+        if (
+            username.length >= 4 &&
+            validateEmail(email) &&
+            password.length >= 8 &&
+            password === repeatPassword
+        ) { setValid(true) } 
+    }
+
+    
 
     return (
         <div className="Signup">
@@ -44,9 +63,11 @@ const Signup = ({ dispatch }) => {
                         className="form-control form-control-lg" 
                         type="text"
                         name="username"
+                        maxLength="12"
                         placeholder="Enter Username"
                         onChange={handleUpdate}
                     />
+                    {attempt && form.username.length < 4 && <Error>Username not up to four letters</Error>}
                     
                     <input 
                         className="form-control form-control-lg" 
@@ -55,6 +76,7 @@ const Signup = ({ dispatch }) => {
                         placeholder="Enter E-mail Address"
                         onChange={handleUpdate}
                     />
+                    {attempt && !validateEmail(form.email) && <Error>Email not correct</Error>}
     
                     <input 
                         className="form-control form-control-lg" 
@@ -63,6 +85,8 @@ const Signup = ({ dispatch }) => {
                         placeholder="Enter a password"
                         onChange={handleUpdate}
                     />
+                    {attempt && form.password.length < 8 && <Error>Password not Strong</Error>}
+
                     <input 
                         className="form-control form-control-lg" 
                         type="password"
@@ -70,13 +94,16 @@ const Signup = ({ dispatch }) => {
                         placeholder="Confirm your password"
                         onChange={handleUpdate}
                     />
-    
-                    <Button 
-                        className="btn btn-lg btn-primary pull-xs-right"
-                        onClick={register}
-                        type="submit">
-                        Submit
-                    </Button>
+                    {attempt && form.password !== form.repeatPassword && <Error>Passwords don't match</Error>}
+
+                    <div className="button">
+                        <Button 
+                            className="btn btn-lg btn-primary pull-xs-right"
+                            onClick={register}
+                            type="submit">
+                            Submit
+                        </Button>
+                    </div>
                 </div>
                 </form>
             </SignupStyled>    
