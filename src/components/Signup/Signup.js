@@ -7,6 +7,8 @@ import { SignupStyled } from './Signup.styed'
 import registeredForm from '../../actions/registeredForm'
 import validateEmail from '../../validateEmail'
 import { Error } from '../../assets/styles/Error'
+import superagent from 'superagent'
+// import Auth from '../../agent'
 
 
 
@@ -33,7 +35,26 @@ const Signup = ({ dispatch }) => {
         validate()
         e.preventDefault()
         setAttempt(true)
-        if (valid) return dispatch(registeredForm(form)) 
+        if (valid) {
+            // AJAX REQUEST AND CALLBACK TO INSPECT JSON BODY RETURNED
+            superagent
+                .post('https://linkifyserver.herokuapp.com/register')
+                .send({username: form.username, password: form.password})
+                .end((err, res) => {
+                    if (err) {
+                        console.log("Registration failed")
+                    } else {
+                        const response = res.body
+                        if (response.error) {
+                            console.error(response.error)
+                        } else {
+                            superagent
+                                .post('https://linkifyserver.herokuapp.com/login')
+                                .send({username: form.username, password: form.password})
+                        }
+                    }
+                })
+        }
     }
 
     const validate = () => {
@@ -67,7 +88,7 @@ const Signup = ({ dispatch }) => {
                         placeholder="Enter Username"
                         onChange={handleUpdate}
                     />
-                    {attempt && form.username.length < 4 && <Error>Username not up to four letters</Error>}
+                    {attempt && form.username.length < 4 && <Error>Username is not up to four letters</Error>}
                     
                     <input 
                         className="form-control form-control-lg" 
@@ -76,7 +97,7 @@ const Signup = ({ dispatch }) => {
                         placeholder="Enter E-mail Address"
                         onChange={handleUpdate}
                     />
-                    {attempt && !validateEmail(form.email) && <Error>Email not correct</Error>}
+                    {attempt && !validateEmail(form.email) && <Error>Email is not correct</Error>}
     
                     <input 
                         className="form-control form-control-lg" 
@@ -85,7 +106,7 @@ const Signup = ({ dispatch }) => {
                         placeholder="Enter a password"
                         onChange={handleUpdate}
                     />
-                    {attempt && form.password.length < 8 && <Error>Password not Strong</Error>}
+                    {attempt && form.password.length < 8 && <Error>Password is not Strong</Error>}
 
                     <input 
                         className="form-control form-control-lg" 
