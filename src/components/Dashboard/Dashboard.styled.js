@@ -22,11 +22,9 @@ export const DashboardStyled = styled.main`
         margin: 15px 0;
         gap: 70px;
         .details {
+
+            overflow: hidden;
             
-            display: flex;
-            justify-content: space-between;
-            width: 100%;
-            gap: 20px;
             
         }
         .delete-btn {

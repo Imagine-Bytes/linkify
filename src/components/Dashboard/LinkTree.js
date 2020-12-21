@@ -25,7 +25,7 @@ const LinkTree = props => {
                                 <span>F</span>
                                 <p>Link: {branch.link}</p>
                             </div>
-                            <button className='delete-btn'>D</button>
+                            <span className='delete-btn'>D</span>
 
                         </div>
 
