@@ -38,10 +38,12 @@ const Auth = {
 
 const Links = {
   mylinks: () =>
+
     requests.get(`/mylinks`),
   mytree: () =>
     requests.get(`/mytree`),
   addLink: (name, link) => requests.post('addlink', { name: name, link: link }),
+
   shorten: (main_url) =>
     requests.get(`/shorten?main_url=${encode(main_url)}`),
   shortenonce: (main_url) =>
